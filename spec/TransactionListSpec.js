@@ -7,6 +7,7 @@ describe('TransactionList', () => {
   it('stores a list of transactions', () => {
     const transactionList = new TransactionList();
     transactionList.append(new Transaction('deposit', 1));
+    
     expect(transactionList.getTransactions().length).toEqual(1);
   });
 });
