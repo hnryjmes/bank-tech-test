@@ -14,4 +14,8 @@ describe('TransactionList', () => {
 
     expect(transactionList.getTransactions().length).toEqual(1);
   });
+
+  it('returns an empty statement when there are no transactions', () => {
+    expect(transactionList.getStatement()).toEqual(transactionList.HEADINGS.join(' || '));
+  });
 });
