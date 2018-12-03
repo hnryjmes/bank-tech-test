@@ -8,7 +8,7 @@ describe('Account', () => {
     expect(account.balance).toEqual(0);
   });
 
-  it('can make a deposit', () => {
+  it('can make a deposit of 1', () => {
     const account = new Account();
     account.deposit(1);
     expect(account.balance).toEqual(1);
