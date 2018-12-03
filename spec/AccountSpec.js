@@ -3,10 +3,12 @@
 describe('Account', () => {
   const Account = require('../lib/Account');
   const Transaction = require('../lib/Transaction');
+  const TransactionList = require('../lib/TransactionList');
   let account;
 
   beforeEach(() => {
-    account = new Account();
+    transactionList = new TransactionList();
+    account = new Account(transactionList);
   });
 
   it('has zero balance by default', () => {
@@ -22,10 +24,5 @@ describe('Account', () => {
     account.update(new Transaction('deposit', 1));
     account.update(new Transaction('withdraw', 1));
     expect(account.getBalance()).toEqual(0);
-  });
-
-  it('stores a transaction history', () => {
-    account.update(new Transaction('deposit', 1));
-    expect(account.getTransactions().length).toEqual(1);
   });
 });
