@@ -1,6 +1,6 @@
 # Bank tech test
 
-Simple CLI application in Node.js to model a bank account. Handles deposits, withdrawals, and prints bank statements.
+Simple command-line application to model a bank account. Handles deposits, withdrawals, and prints bank statements.
 
 ## Usage
 
