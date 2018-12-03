@@ -16,6 +16,6 @@ describe('TransactionList', () => {
   });
 
   it('returns an empty statement when there are no transactions', () => {
-    expect(transactionList.getStatement()).toEqual(transactionList.HEADINGS.join(' || '));
+    expect(transactionList.getStatement()).toEqual(transactionList.HEADINGS.join(transactionList.JOINER));
   });
 });
