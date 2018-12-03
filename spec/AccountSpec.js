@@ -26,6 +26,6 @@ describe('Account', () => {
 
   it('stores a transaction history', () => {
     account.update(new Transaction('deposit', 1));
-    expect(account.transactions.length).toEqual(1);
+    expect(account.getTransactions().length).toEqual(1);
   });
 });
