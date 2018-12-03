@@ -22,4 +22,9 @@ describe('Account', () => {
     account.withdraw(1);
     expect(account.balance).toEqual(0);
   });
+
+  it('stores a transaction history', () => {
+    account.deposit(1);
+    expect(account.transactions.length).toEqual(1);
+  });
 });
