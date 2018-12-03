@@ -3,8 +3,14 @@
 describe('Account', () => {
   const Account = require('../lib/Account');
 
-  it('can create an account', () => {
+  it('has zero balance by default', () => {
     const account = new Account();
-    expect(account instanceof Account).toBe(true);
+    expect(account.balance).toEqual(0);
+  });
+
+  it('can make a deposit', () => {
+    const account = new Account();
+    account.deposit(1);
+    expect(account.balance).toEqual(1);
   });
 });
