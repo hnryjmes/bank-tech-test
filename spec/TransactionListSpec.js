@@ -1,5 +1,3 @@
-/* eslint-disable global-require */
-/* eslint-disable no-undef */
 describe('TransactionList', () => {
   const TransactionList = require('../lib/TransactionList');
   const Transaction = require('../lib/Transaction');
@@ -10,7 +8,7 @@ describe('TransactionList', () => {
   });
 
   it('stores a list of transactions', () => {
-    transactionList.append(new Transaction('deposit', 1));
+    transactionList.append(new Transaction('deposit', 1, new Date()));
 
     expect(transactionList.getTransactions().length).toEqual(1);
   });

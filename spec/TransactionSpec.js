@@ -1,5 +1,3 @@
-/* eslint-disable global-require */
-/* eslint-disable no-undef */
 describe('Transaction', () => {
   const Transaction = require('../lib/Transaction');
 
