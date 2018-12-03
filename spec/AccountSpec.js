@@ -2,6 +2,7 @@
 /* eslint-disable no-undef */
 describe('Account', () => {
   const Account = require('../lib/Account');
+  const Transaction = require('../lib/Transaction');
   let account;
 
   beforeEach(() => {
@@ -9,22 +10,22 @@ describe('Account', () => {
   });
 
   it('has zero balance by default', () => {
-    expect(account.balance).toEqual(0);
+    expect(account.getBalance()).toEqual(0);
   });
 
   it('can make a deposit of 1', () => {
-    account.deposit(1);
-    expect(account.balance).toEqual(1);
+    account.update(new Transaction('deposit', 1));
+    expect(account.getBalance()).toEqual(1);
   });
 
   it('can make a withdrawal of 1', () => {
-    account.deposit(1);
-    account.withdraw(1);
-    expect(account.balance).toEqual(0);
+    account.update(new Transaction('deposit', 1));
+    account.update(new Transaction('withdraw', 1));
+    expect(account.getBalance()).toEqual(0);
   });
 
   it('stores a transaction history', () => {
-    account.deposit(1);
+    account.update(new Transaction('deposit', 1));
     expect(account.transactions.length).toEqual(1);
   });
 });
