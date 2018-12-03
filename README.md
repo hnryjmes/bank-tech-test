@@ -1,22 +1,20 @@
 # Bank tech test
 
-Simple CLI application to model a bank account. Handles deposits, withdrawals, and prints bank statements.
+Simple CLI application in Node.js to model a bank account. Handles deposits, withdrawals, and prints bank statements.
 
 ## Usage
 
-To use the app, clone this repository to your local machine, then open `index.html` in a browser. For example:
+To use the app, clone this repository to your local machine, then run `account.js` using Node. For example:
 
 ```shell
 $ git clone https://github.com/hnryjmes/bank-tech-test.git
 $ cd bank-tech-test
-$ open index.html
+$ node account.js
 ```
-
-Please note: The app runs in the JavaScript console, so you will need to open something like Chrome DevTools to use the app.
 
 ## Tests
 
-To see Jasmine tests, open `SpecRunner.html` in your browser.
+To see all Jasmine specs, just run `jasmine`.
 
 ## Screenshots
 
