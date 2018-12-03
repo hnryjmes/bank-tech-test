@@ -1,8 +1,10 @@
+/* eslint-disable global-require */
+/* eslint-disable no-undef */
 describe('Account', () => {
-  let Account = require('../lib/Account');
+  const Account = require('../lib/Account');
 
   it('can create an account', () => {
-    let account = new Account();
+    const account = new Account();
     expect(account instanceof Account).toBe(true);
   });
 });
