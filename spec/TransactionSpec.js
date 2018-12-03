@@ -6,12 +6,12 @@ describe('Transaction', () => {
   it('stores a transaction with today\'s date by default', () => {
     const transaction = new Transaction('deposit', 1);
     const today = new Date();
-    expect(transaction.getDate()).toEqual(today.toLocaleDateString());
+    expect(transaction.getReadableDate()).toEqual(today.toLocaleDateString());
   });
 
   it('stores a transaction with a custom date', () => {
     const myDate = new Date('2018-12-02');
     const transaction = new Transaction('deposit', 1, myDate);
-    expect(transaction.getDate()).toEqual(myDate.toLocaleDateString());
+    expect(transaction.getReadableDate()).toEqual(myDate.toLocaleDateString());
   });
 });
