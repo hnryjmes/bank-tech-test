@@ -17,6 +17,12 @@
   },
   "homepage": "https://github.com/hnryjmes/bank-tech-test#readme",
   "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
     "jasmine": "^3.3.0"
+  },
+  "dependencies": {
+    "eslint-config-airbnb": "^17.1.0"
   }
 }
