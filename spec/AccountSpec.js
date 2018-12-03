@@ -16,4 +16,10 @@ describe('Account', () => {
     account.deposit(1);
     expect(account.balance).toEqual(1);
   });
+
+  it('can make a withdrawal of 1', () => {
+    account.deposit(1);
+    account.withdraw(1);
+    expect(account.balance).toEqual(0);
+  });
 });
