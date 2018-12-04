@@ -1,7 +1,7 @@
 describe('Account', () => {
-  const Account = require('../lib/Account');
-  const Transaction = require('../lib/Transaction');
-  const TransactionList = require('../lib/TransactionList');
+  const Account = require('../../lib/Account');
+  const Transaction = require('../../lib/Transaction');
+  const TransactionList = require('../../lib/TransactionList');
   let account;
   let transactionList;
 

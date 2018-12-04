@@ -1,6 +1,6 @@
 describe('TransactionList', () => {
-  const TransactionList = require('../lib/TransactionList');
-  const Transaction = require('../lib/Transaction');
+  const TransactionList = require('../../lib/TransactionList');
+  const Transaction = require('../../lib/Transaction');
   let transactionList;
 
   beforeEach(() => {
