@@ -5,6 +5,6 @@ describe('Transaction', () => {
     const today = new Date();
     const transaction = new Transaction('deposit', 1);
 
-    expect(transaction.getReadableDate()).toEqual(today.toLocaleDateString());
+    expect(transaction.getReadableDate(transaction.date)).toEqual(transaction.getReadableDate(today));
   });
 });

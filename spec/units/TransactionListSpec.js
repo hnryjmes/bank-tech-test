@@ -7,7 +7,9 @@ describe('TransactionList', () => {
     transactionList = new TransactionList();
     transaction = jasmine.createSpyObj('transaction', {
       getReadableDate: '25/12/2018',
-      getReadableAmount: '1.00'
+      getReadableCredit: '1.00',
+      getReadableDebit: '',
+      getHistoricalBalance: 1
     });
   });
 
@@ -18,45 +20,51 @@ describe('TransactionList', () => {
   });
 
   it('returns an empty statement when there are no transactions', () => {
-    let statementHeader = transactionList.HEADINGS.join(transactionList.JOINER);
+    let statementHeader = transactionList.makeHeader();
     
     expect(transactionList.getStatement()).toEqual(statementHeader);
   });
 
   it('returns a statement with one transaction', () => {
     transactionList.append(transaction);
-    let statementHeader = transactionList.HEADINGS.join(transactionList.JOINER);
+    let statementHeader = transactionList.makeHeader();
     transaction = transactionList.getTransactions()[0];
-    let firstStatementItem = [transaction.getReadableDate(), transaction.getReadableAmount()].join(transactionList.JOINER);
-    let statement = [statementHeader, firstStatementItem].join('\n');
+    let statementItem = transactionList.makeStatementItem(transaction);
+    let statement = [statementHeader, statementItem].join('\n');
 
     expect(transactionList.getStatement()).toEqual(statement);
   });
   //TODO: Make statement same as acceptance criteria!
-  it('returns a statement with multiple historical transations', () => {
+  it('returns a statement with multiple historical transactions', () => {
     let firstTransaction = jasmine.createSpyObj('firstTransaction', {
       getReadableDate: '10/01/2012',
-      getReadableAmount: '1000.00'
+      getReadableCredit: '1000.00',
+      getReadableDebit: '',
+      getHistoricalBalance: 1000
     });
     transactionList.append(firstTransaction);
 
     let secondTransaction = jasmine.createSpyObj('secondTransaction', {
       getReadableDate: '13/01/2012',
-      getReadableAmount: '2000.00'
+      getReadableCredit: '2000.00',
+      getReadableDebit: '',
+      getHistoricalBalance: 3000
     });
     transactionList.append(secondTransaction);
 
     let thirdTransaction = jasmine.createSpyObj('thirdTransaction', {
       getReadableDate: '14/01/2012',
-      getReadableAmount: '500.00'
+      getReadableCredit: '',
+      getReadableDebit: '500.00',
+      getHistoricalBalance: 2500    
     });
     transactionList.append(thirdTransaction);
 
-    let statementHeader = transactionList.HEADINGS.join(transactionList.JOINER);
-    let firstStatementItem = [firstTransaction.getReadableDate(), firstTransaction.getReadableAmount()].join(transactionList.JOINER);
-    let secondStatementItem = [secondTransaction.getReadableDate(), secondTransaction.getReadableAmount()].join(transactionList.JOINER);
-    let thirdStatementItem = [thirdTransaction.getReadableDate(), thirdTransaction.getReadableAmount()].join(transactionList.JOINER);
-    let statement = [statementHeader, firstStatementItem, secondStatementItem, thirdStatementItem].join('\n');
+    let statementHeader = transactionList.makeHeader();
+    let firstStatementItem = transactionList.makeStatementItem(firstTransaction);
+    let secondStatementItem = transactionList.makeStatementItem(secondTransaction);
+    let thirdStatementItem = transactionList.makeStatementItem(thirdTransaction);
+    let statement = [statementHeader, thirdStatementItem, secondStatementItem, firstStatementItem].join('\n');
 
     expect(transactionList.getStatement()).toEqual(statement);
   });

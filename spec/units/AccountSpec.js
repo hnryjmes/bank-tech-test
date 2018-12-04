@@ -8,11 +8,13 @@ describe('Account', () => {
   beforeEach(() => {
     depositTransaction = jasmine.createSpyObj('depositTransaction', {
       getType: 'deposit',
-      getAmount: 1
+      getAmount: 1,
+      setHistoricalBalance: ''
     });
     withdrawTransaction = jasmine.createSpyObj('withdrawTransaction', {
       getType: 'withdraw',
-      getAmount: 1
+      getAmount: 1,
+      setHistoricalBalance: ''
     });
     transactionList = jasmine.createSpyObj('transactionList', ['append']);
     account = new Account(transactionList);
