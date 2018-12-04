@@ -31,10 +31,6 @@ undefined
 
 To see all Jasmine specs, just run `jasmine`.
 
-## Screenshots
-
-![Screenshot 1](./images/screenshot.png)
-
 ## User Stories
 
 ```
