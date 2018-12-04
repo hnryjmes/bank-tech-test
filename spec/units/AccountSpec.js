@@ -1,12 +1,20 @@
 describe('Account', () => {
   const Account = require('../../lib/Account');
-  const Transaction = require('../../lib/Transaction');
-  const TransactionList = require('../../lib/TransactionList');
   let account;
   let transactionList;
+  let depositTransaction;
+  let withdrawTransaction;
 
   beforeEach(() => {
-    transactionList = new TransactionList();
+    depositTransaction = jasmine.createSpyObj('depositTransaction', {
+      getType: 'deposit',
+      getAmount: 1
+    });
+    withdrawTransaction = jasmine.createSpyObj('withdrawTransaction', {
+      getType: 'withdraw',
+      getAmount: 1
+    });
+    transactionList = jasmine.createSpyObj('transactionList', ['append']);
     account = new Account(transactionList);
   });
 
@@ -15,14 +23,14 @@ describe('Account', () => {
   });
 
   it('can make a deposit of 1', () => {
-    account.update(new Transaction('deposit', 1));
+    account.update(depositTransaction);
 
     expect(account.getBalance()).toEqual(1);
   });
 
   it('can make a withdrawal of 1', () => {
-    account.update(new Transaction('deposit', 1));
-    account.update(new Transaction('withdraw', 1));
+    account.update(depositTransaction);
+    account.update(withdrawTransaction);
     
     expect(account.getBalance()).toEqual(0);
   });
