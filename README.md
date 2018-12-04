@@ -4,7 +4,7 @@ Simple command-line application to model a bank account. Handles deposits, withd
 
 ## Usage
 
-To use the app, clone this repository to your local machine, then navigate to `lib`, then run `account.js` using Node. For example:
+(Update: not working!) To use the app, clone this repository to your local machine, then navigate to `lib`, then run `account.js` using Node. For example:
 
 ```shell
 $ git clone https://github.com/hnryjmes/bank-tech-test.git
