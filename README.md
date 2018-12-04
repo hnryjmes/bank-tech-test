@@ -4,13 +4,27 @@ Simple command-line application to model a bank account. Handles deposits, withd
 
 ## Usage
 
-(Update: not working!) To use the app, clone this repository to your local machine, then navigate to `lib`, then run `account.js` using Node. For example:
+To use the app, clone this repository to your local machine, then start a Node REPL by running `node`, then require the classes as needed. For example:
 
 ```shell
 $ git clone https://github.com/hnryjmes/bank-tech-test.git
 $ cd bank-tech-test
-$ cd lib
-$ node account.js
+$ node
+> const Transaction = require('./lib/Transaction')
+undefined
+> const TransactionList = require('./lib/TransactionList')
+undefined
+> const Account = require('./lib/Account')
+undefined
+> let first = new Transaction('deposit', 1000)
+undefined
+> let account = new Account(new TransactionList())
+undefined
+> account.update(first)
+undefined
+> account.transactionList.getStatement()
+'date || credit || debit || balance\n4/12/2018 || 1000.00 || || 1000.00'
+>
 ```
 
 ## Tests
