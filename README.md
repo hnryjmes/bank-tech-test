@@ -2,6 +2,10 @@
 
 Simple command-line application to model a bank account. Handles deposits, withdrawals, and prints bank statements.
 
+## Design
+
+My approach was to write this tech test in JavaScript using Node.js, test-driving with Jasmine, and focusing on object-oriented design.
+
 ## Usage
 
 To use the app, clone this repository to your local machine, then start a Node REPL by running `node`, then require the classes as needed. For example:
